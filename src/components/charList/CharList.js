@@ -42,6 +42,7 @@ const CharList = () => {
                     <div className="char__name">Abyss</div>
                 </li>
             </ul>
+
             <button className="button button__main button__long">
                 <div className="inner">load more</div>
             </button>
