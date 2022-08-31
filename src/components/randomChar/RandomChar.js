@@ -1,6 +1,6 @@
 import './randomChar.scss';
 import mjolnir from '../../resources/img/mjolnir.png';
-import { Component} from 'react';
+import {Component} from 'react';
 import MarvelService from '../../services/MarvelService';
 import ErrorMessage from "../errorMesage/ErrorMessage";
 import Spinner from '../spinner/Spinner'
@@ -10,7 +10,6 @@ import Spinner from '../spinner/Spinner'
 class RandomChar extends Component {
     constructor(props) {
         super(props);
-        this.updateChar()
     }
     
     state = {
@@ -21,7 +20,10 @@ class RandomChar extends Component {
 
     
     marvelService = new MarvelService();
-
+    // Для работы с серверами идеально подходит хук compontentDidMount();
+    componentDidMount() {
+        this.updateChar();
+    }
 
     // Нужне только чтобы менять стейт. По дефолту лоадинг стоит true, когда приходят данные они меняется на false;
     onCharLoaded = (char) => {
@@ -62,7 +64,7 @@ class RandomChar extends Component {
                     <p className="randomchar__title">
                         Or choose another one
                     </p>
-                    <button className="button button__main">
+                    <button onClick={this.updateChar} className="button button__main">
                         <div className="inner">try it</div>
                     </button>
                     <img src={mjolnir} alt="mjolnir" className="randomchar__decoration"/>

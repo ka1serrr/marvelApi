@@ -1,16 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0c78fb27-e1b7-457c-90be-5a8de2055a89" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/errorMesage/ErrorMessage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/errorMesage/error.gif" afterDir="false" />
+    <list default="true" id="0c78fb27-e1b7-457c-90be-5a8de2055a89" name="Changes" comment="added error and loading marks">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/charList/CharList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/charList/CharList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/randomChar/RandomChar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/randomChar/RandomChar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/randomChar/randomChar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/randomChar/randomChar.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/singleComic/SingleComic.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/singleComic/SingleComic.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/MarvelService.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/MarvelService.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +23,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/components/errorMesage/ErrorMessage.js" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/components/randomChar/RandomChar.js" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/components/randomChar/randomChar.scss" root0="SKIP_INSPECTION" />
   </component>
@@ -45,22 +41,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;Project.color&quot;: &quot;364931&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.tabs&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;D:\\Programms\\WebStorm 2022.2.1\\plugins\\JavaScriptLanguage\\jsLanguageServicesImpl\\external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Project.color": "364931",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "dart.analysis.tool.window.visible": "false",
+    "last_opened_file_path": "C:/Users/User/Desktop/education/marvel",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "terminal",
+    "ts.external.directory.path": "D:\\Programms\\WebStorm 2022.2.1\\plugins\\JavaScriptLanguage\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\User\Desktop\education\marvel\src\components\errorMesage" />
@@ -79,7 +76,31 @@
       <workItem from="1661893514039" duration="52000" />
       <workItem from="1661893607153" duration="139000" />
       <workItem from="1661893805946" duration="9000" />
+      <workItem from="1661894221017" duration="32000" />
+      <workItem from="1661894285180" duration="692000" />
+      <workItem from="1661895031187" duration="182000" />
+      <workItem from="1661971630288" duration="56000" />
+      <workItem from="1661971729405" duration="191000" />
+      <workItem from="1661971941739" duration="78000" />
+      <workItem from="1661972039139" duration="142000" />
+      <workItem from="1661972202008" duration="133000" />
+      <workItem from="1661972370807" duration="367000" />
+      <workItem from="1661972757843" duration="131000" />
+      <workItem from="1661972913799" duration="66000" />
+      <workItem from="1661973061859" duration="54000" />
+      <workItem from="1661973142169" duration="23000" />
+      <workItem from="1661973182161" duration="21000" />
+      <workItem from="1661973232010" duration="210000" />
+      <workItem from="1661973480354" duration="17000" />
     </task>
+    <task id="LOCAL-00001" summary="added error and loading marks">
+      <created>1661893954956</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1661893954956</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -98,5 +119,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="added error and loading marks" />
+    <option name="LAST_COMMIT_MESSAGE" value="added error and loading marks" />
   </component>
 </project>
