@@ -4,7 +4,7 @@ import MarvelService from "../../services/MarvelService";
 import Spinner from "../spinner/Spinner"
 
 class CharList extends Component{
-    // Нужно переписать под классы, добавить стейт персонажи, затем зенить его из get AlllCharartecrs.
+
     constructor(props) {
         super(props);
         this.state = {
@@ -47,6 +47,7 @@ class CharList extends Component{
             }
             return (
                 <li
+                    onClick={() => this.props.onCharSelected(hero.id)}
                     key={hero.id}
                     className="char__item">
                         <img src={hero.thumbnail} alt="abyss" style={objectFitStyle}/>

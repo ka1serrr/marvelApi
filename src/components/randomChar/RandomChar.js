@@ -14,7 +14,7 @@ class RandomChar extends Component {
         error: false
     }
 
-    
+
     marvelService = new MarvelService();
     // Для работы с серверами идеально подходит хук compontentDidMount();
     componentDidMount() {
