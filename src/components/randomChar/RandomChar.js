@@ -8,10 +8,6 @@ import Spinner from '../spinner/Spinner'
 
 
 class RandomChar extends Component {
-    constructor(props) {
-        super(props);
-    }
-    
     state = {
         char: {},
         loading: true,
@@ -24,10 +20,17 @@ class RandomChar extends Component {
     componentDidMount() {
         this.updateChar();
     }
+    componentWillUnmount() {
+        clearInterval(this.timerId);
+    }
+
 
     // Нужне только чтобы менять стейт. По дефолту лоадинг стоит true, когда приходят данные они меняется на false;
     onCharLoaded = (char) => {
-        this.setState({char, loading: false});
+        this.setState({char, loading: false, error: false});
+    }
+    onCharLoading = () => {
+        this.setState({loading: true})
     }
 
     onError = () => {
@@ -37,6 +40,7 @@ class RandomChar extends Component {
     // Здесь мы рандомим айди, затем получаем данные из marvelService и передаём их в onCharLoaded. Если же будет выдана ошибка, то тогда код обратиться к функции onError, которая будет менять стейт error
     updateChar = () => {
         const id = Math.floor(Math.random() * (1011400 - 1011000) + 1011000);
+        this.onCharLoading();
         this.marvelService
             .getCharacter(id)
             .then(this.onCharLoaded)
@@ -45,7 +49,6 @@ class RandomChar extends Component {
 
     render () {
         const {char, loading, error} =  this.state;
-
         // Если у нас будет ошибка, то будет возвращаться она, если нет => нечего. И так везде.
         const errorMessage = error ? <ErrorMessage></ErrorMessage> : null;
         const spinner = loading ? <Spinner></Spinner> : null;
@@ -76,10 +79,19 @@ class RandomChar extends Component {
 
 const View = ({char}) => {
     const {name, description, thumbnail, homepage, wiki} = char;
+    let styleSrc = {
+        'objectFit': 'cover',
+    }
+
+    if (thumbnail === 'http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg') {
+        styleSrc = {
+            'objectFit': 'contain'
+        }
+    }
 
     return (
         <div className="randomchar__block">
-            <img src={thumbnail} alt="Random character" className="randomchar__img"/>
+            <img src={thumbnail} alt="Random character" className='randomchar__img' style={styleSrc}/>
             <div className="randomchar__info">
                 <p className="randomchar__name">{name}</p>
                 <p className="randomchar__descr">
