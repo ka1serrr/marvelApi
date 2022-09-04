@@ -5,6 +5,8 @@ import Spinner from "../spinner/Spinner";
 import ErrorMessage from '../errorMesage/ErrorMessage'
 import MarvelService from "../../services/MarvelService";
 import Skeleton from '../skeleton/Skeleton'
+import PropTypes from "prop-types"
+
 
 class CharInfo extends Component{
     state = {
@@ -26,6 +28,8 @@ class CharInfo extends Component{
         }
     }
 
+
+
     updateChar = () => {
         const {charId} = this.props;
         if (!charId) {
@@ -37,6 +41,7 @@ class CharInfo extends Component{
             .then(this.onCharLoaded)
             .catch(this.onError)
     }
+
 
     onCharLoaded = (char) => {
         this.setState({char, loading: false, error: false});
@@ -112,6 +117,10 @@ const View = ({char}) => {
             </ul>
         </>
     )
+}
+
+CharInfo.propTypes = {
+    charId: PropTypes.number
 }
 
 export default CharInfo;

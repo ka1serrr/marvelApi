@@ -2,40 +2,70 @@ import './charList.scss';
 import {Component} from 'react';
 import MarvelService from "../../services/MarvelService";
 import Spinner from "../spinner/Spinner"
+import CharInfo from "../charInfo/CharInfo";
+import PropTypes from "prop-types"
 
 class CharList extends Component{
-
     constructor(props) {
         super(props);
         this.state = {
             heroes: [],
-            loading: true
+            loading: true,
+            newItemLoading: false,
+            offset: 210,
+            onHeroesEnded: false
+        }
+    }
+
+    showElemenyByScroll = () => {
+        if (window.pageYOffset + document.documentElement.clientHeight >= document.documentElement.scrollHeight) {
+            this.onRequest(this.state.offset)
         }
     }
 
     componentDidMount () {
-        this.updateList();
+        this.onRequest();
+        window.addEventListener('scroll', this.showElemenyByScroll)
+    }
 
+    componentWillUnmount() {
+        window.removeEventListener('scroll', this.showElemenyByScroll)
+    }
+
+    onRequest = (offset) => {
+        this.onCharListLoading();
+        this.marvelCharacters
+            .getAllCharacters(offset)
+            .then(this.onLoadedList)
+    }
+
+    onCharListLoading = () => {
+        this.setState({newItemLoading: true})
     }
 
     marvelCharacters = new MarvelService();
 
-    onLoadedList = (heroes) => {
-        this.setState({heroes, loading: false})
+    onLoadedList = (newHeroes) => {
+        let ended = false;
+        if (newHeroes.length < 9) {
+            ended = true
+        }
+
+        this.setState(({heroes, offset}) => ({
+            heroes: [...heroes, ...newHeroes],
+            loading: false,
+            newItemLoading: false,
+            offset: offset + 9,
+            onHeroesEnded: ended
+        }))
     }
 
-    updateList = () => {
-        this.marvelCharacters
-            .getAllCharacters()
-            .then(this.onLoadedList)
-
-    }
 
 
 
 
     render() {
-        const {heroes, loading} = this.state
+        const {loading, offset, newItemLoading, onHeroesEnded} = this.state
         const marvelHeroes = this.state.heroes.map((hero, i)=> {
             let objectFitStyle = {
                 'objectFit': 'cover'
@@ -65,12 +95,14 @@ class CharList extends Component{
                     {hero}
                 </ul>
 
-                <button className="button button__main button__long">
-                    <div className="inner">load more</div>
+                <button className="button button__main button__long" disabled={newItemLoading} style={{'display': onHeroesEnded ? 'none' : 'block'}}>
+                    <div className="inner"  onClick={() => this.onRequest(offset)}>load more</div>
                 </button>
             </div>
         )
     }
 }
-
+CharInfo.propTypes = {
+    onCharSelected: PropTypes.func.isRequired
+}
 export default CharList;
